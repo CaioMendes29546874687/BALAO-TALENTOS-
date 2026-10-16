@@ -222,6 +222,44 @@ body::before{opacity:.07;filter:grayscale(1);background-size:min(55vw,540px)}
 @media(min-width:801px){.hero{background-position:center 48%}.hero-grid{min-height:460px}.hero-art .carbox{min-height:350px}}
 @media(max-width:800px){.hero{background-position:62% center}.hero-grid{grid-template-columns:1fr}.hero-art .carbox{min-height:250px}.service-photo{height:190px}}
 
+
+/* Ajustes de fluxo e proporção: formulário mais leve e layout menos esticado */
+.hero-grid{gap:22px;padding:58px 0 62px}
+.hero h1{font-size:clamp(36px,4.8vw,58px);letter-spacing:-1.8px}
+.hero p{max-width:490px;font-size:16px;line-height:1.65}
+.hero-art .carbox{min-height:310px;max-height:380px}
+.section{padding:66px 0}
+.heading{margin-bottom:25px}
+.cards{gap:14px}
+.service{min-width:0}
+.service-photo{height:150px}
+.booking{padding:64px 0}
+.bookgrid{grid-template-columns:.85fr 1.15fr;gap:22px;max-width:1050px}
+.bookintro{position:static}
+.bookintro h2{font-size:clamp(29px,3.4vw,38px);letter-spacing:-1px}
+.bookintro p{font-size:15px}
+.formcard{padding:24px;border-radius:20px}
+.fields{gap:13px}
+.field input,.field select,.field textarea{padding:12px}
+.trustgrid{padding:20px 0}
+.footer{padding:38px 0}
+@media(max-width:800px){
+ .hero-grid{padding:42px 0 48px;gap:22px}
+ .hero h1{font-size:clamp(34px,8.5vw,48px)}
+ .hero-art .carbox{min-height:235px;max-height:290px}
+ .section{padding:48px 0}
+ .bookgrid{grid-template-columns:1fr;gap:22px}
+ .bookintro h2{font-size:30px}
+ .formcard{padding:20px}
+ .service-photo{height:180px}
+}
+@media(max-width:480px){
+ .fields{grid-template-columns:1fr}
+ .field.full{grid-column:auto}
+ .hero p{font-size:15px}
+ .service-photo{height:165px}
+}
+
 </style>
 </head>
 <body>
@@ -238,7 +276,7 @@ body::before{opacity:.07;filter:grayscale(1);background-size:min(55vw,540px)}
 <div class="field"><label for="name">Nome completo *</label><input id="name" required maxlength="100" placeholder="Seu nome"></div>
 <div class="field"><label for="phone">WhatsApp *</label><input id="phone" required inputmode="tel" maxlength="20" placeholder="(19) 99999-9999"></div>
 <div class="field"><label for="vehicle">Veículo *</label><input id="vehicle" required maxlength="80" placeholder="Ex.: Onix, 2022"></div>
-<div class="field"><label for="plate">Placa (opcional)</label><input id="plate" maxlength="10" placeholder="ABC1D23"></div>
+
 <div class="field full"><label for="service">Serviço *</label><select id="service" required></select></div>
 <div class="field full"><label>Onde será o atendimento? *</label><select id="location"><option value="loja">Na loja</option><option value="domicilio">A domicílio</option></select></div>
 <div class="field full" id="addressWrap" style="display:none"><label for="address">Endereço para atendimento *</label><input id="address" maxlength="220" placeholder="Rua, número, bairro e cidade"></div>
