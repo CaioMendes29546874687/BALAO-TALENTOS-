@@ -303,7 +303,7 @@ let services=get(SERVKEY,defaultServices),reservations=get(KEY,[]),settings=get(
 const brl=n=>Number(n).toLocaleString('pt-BR',{style:'currency',currency:'BRL'});
 function escapeHTML(s){return String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
 function renderServices(){
-const photos={outside:'https://images.unsplash.com/photo-1607860108855-64acf2078ed9?auto=format&fit=crop&w=900&q=85',inside:'https://images.unsplash.com/photo-1507136566006-cfc505b114fc?auto=format&fit=crop&w=900&q=85',complete:'https://images.unsplash.com/photo-1605164599901-ef5b4c7f5c8d?auto=format&fit=crop&w=900&q=85'};
+const photos={outside:'https://images.unsplash.com/photo-1607860108855-64acf2078ed9?auto=format&fit=crop&w=900&q=85',inside:'https://images.unsplash.com/photo-1507136566006-cfc505b114fc?auto=format&fit=crop&w=900&q=85',complete:'https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?auto=format&fit=crop&w=900&q=85'};
 $('serviceCards').innerHTML=services.map(s=>'<article class="service"><div class="service-photo"><img src="'+(photos[s.id]||photos.complete)+'" alt="'+escapeHTML(s.name)+'" loading="lazy"><span class="photo-label">'+escapeHTML(s.name)+'</span></div><h3>'+escapeHTML(s.name)+'</h3><p>'+escapeHTML(s.description||'Lavagem automotiva.')+'</p><div class="price">'+brl(s.price)+' <small>· '+Number(s.duration)+' min</small></div><button class="btn outline chooseService" data-service="'+escapeHTML(s.id)+'">Selecionar serviço →</button></article>').join('');
 $('service').innerHTML='<option value="">Selecione um serviço</option>'+services.map(s=>'<option value="'+escapeHTML(s.id)+'">'+escapeHTML(s.name)+' — '+brl(s.price)+'</option>').join('')
 }
