@@ -294,9 +294,9 @@ body::before{opacity:.07;filter:grayscale(1);background-size:min(55vw,540px)}
 <script>
 const API_BASE='https://balao-talentos-api.onrender.com';const KEY='bt_reservations_v1',SERVKEY='bt_services_v2',SETKEY='bt_settings_v1',PASSKEY='bt_owner_pass_v1';
 const defaultServices=[
-{id:'outside',name:'Lavagem por fora',description:'Limpeza externa da carroceria, vidros, rodas e pneus.',price:40,duration:35,icon:'🚿'},
-{id:'inside',name:'Lavagem por dentro',description:'Limpeza interna do veículo, painel, portas, tapetes e aspiração.',price:30,duration:45,icon:'🧽'},
-{id:'complete',name:'Lavagem completa',description:'Lavagem externa e limpeza interna para deixar o carro limpo por dentro e por fora.',price:60,duration:70,icon:'✨'}
+{id:'outside',name:'Lavagem por fora',description:'Limpeza externa da carroceria, vidros, rodas e pneus.',price:40,duration:40,icon:'🚿'},
+{id:'inside',name:'Lavagem por dentro',description:'Limpeza interna do veículo, painel, portas, tapetes e aspiração.',price:30,duration:40,icon:'🧽'},
+{id:'complete',name:'Lavagem completa',description:'Lavagem externa e limpeza interna para deixar o carro limpo por dentro e por fora.',price:60,duration:90,icon:'✨'}
 ];
 const $=id=>document.getElementById(id);
 const get=(k,f)=>{try{const v=localStorage.getItem(k);return v?JSON.parse(v):f}catch{return f}};
