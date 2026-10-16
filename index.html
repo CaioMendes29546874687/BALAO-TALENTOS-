@@ -299,7 +299,7 @@ const defaultServices=[
 const $=id=>document.getElementById(id);
 const get=(k,f)=>{try{const v=localStorage.getItem(k);return v?JSON.parse(v):f}catch{return f}};
 const set=(k,v)=>localStorage.setItem(k,JSON.stringify(v));
-let services=get(SERVKEY,defaultServices),reservations=get(KEY,[]),settings=get(SETKEY,{whatsapp:'',hours:'Segunda a sábado, 08h às 18h'}),selectedTime='';
+let services=get(SERVKEY,defaultServices),reservations=get(KEY,[]),settings=get(SETKEY,{whatsapp:'5519999724728',hours:'Segunda a sábado, 08h às 18h'}),selectedTime='';
 const brl=n=>Number(n).toLocaleString('pt-BR',{style:'currency',currency:'BRL'});
 function escapeHTML(s){return String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
 function renderServices(){
