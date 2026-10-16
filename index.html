@@ -201,6 +201,27 @@ body::before{opacity:.07;filter:grayscale(1);background-size:min(55vw,540px)}
  .footerin{display:grid;grid-template-columns:1fr}
 }
 
+
+/* Fotos reais e composição alinhada ao conceito aprovado */
+.hero{position:relative;background-image:linear-gradient(90deg,rgba(0,0,0,.96) 0%,rgba(0,0,0,.78) 42%,rgba(0,0,0,.30) 100%),url('https://images.unsplash.com/photo-1607860108855-64acf2078ed9?auto=format&fit=crop&w=2200&q=90');background-size:cover;background-position:center}
+.hero:after{background-image:url('./file_000000001874820e9cd02b2e5de6025a.png');background-position:90% 52%;background-size:min(25vw,280px);opacity:.08}
+.hero-art .carbox{background-image:linear-gradient(0deg,#0008,#0002),url('https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?auto=format&fit=crop&w=1200&q=85');background-position:center;background-size:cover}
+.hero-art .car{display:none}
+.hero-art .carbox:before,.hero-art .carbox:after{display:none}
+.hero-art .floating{z-index:2}
+.service{padding:0 0 20px;overflow:hidden}
+.service-photo{height:170px;position:relative;overflow:hidden;background:#111;border-bottom:1px solid #444}
+.service-photo img{width:100%;height:100%;object-fit:cover;display:block;filter:grayscale(.85) contrast(1.08);transition:transform .4s,filter .4s}
+.service:hover .service-photo img{transform:scale(1.045);filter:grayscale(.35) contrast(1.08)}
+.photo-label{position:absolute;left:12px;bottom:12px;border:1px solid #ffffff66;background:#050505d9;color:#fff;border-radius:999px;padding:6px 10px;font-size:10px;font-weight:850;letter-spacing:.8px;text-transform:uppercase}
+.service>.ico,.service>h3,.service>p,.service>.price,.service>button{margin-left:20px;margin-right:20px}
+.service>.ico{display:none}
+.service>h3{margin-top:18px}
+.service>button{width:calc(100% - 40px)}
+.trustitem span{color:#fff}
+@media(min-width:801px){.hero{background-position:center 48%}.hero-grid{min-height:460px}.hero-art .carbox{min-height:350px}}
+@media(max-width:800px){.hero{background-position:62% center}.hero-grid{grid-template-columns:1fr}.hero-art .carbox{min-height:250px}.service-photo{height:190px}}
+
 </style>
 </head>
 <body>
@@ -243,7 +264,11 @@ const set=(k,v)=>localStorage.setItem(k,JSON.stringify(v));
 let services=get(SERVKEY,defaultServices),reservations=get(KEY,[]),settings=get(SETKEY,{whatsapp:'',hours:'Segunda a sábado, 08h às 18h'}),selectedTime='';
 const brl=n=>Number(n).toLocaleString('pt-BR',{style:'currency',currency:'BRL'});
 function escapeHTML(s){return String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
-function renderServices(){ $('serviceCards').innerHTML=services.map(s=>'<article class="service"><div class="ico">'+escapeHTML(s.icon||'🚘')+'</div><h3>'+escapeHTML(s.name)+'</h3><p>'+escapeHTML(s.description||'Serviço de cuidado automotivo.')+'</p><div class="price">'+brl(s.price)+' <small>· '+Number(s.duration)+' min</small></div><button class="btn outline chooseService" data-service="'+escapeHTML(s.id)+'">Escolher serviço</button></article>').join('');$('service').innerHTML='<option value="">Selecione um serviço</option>'+services.map(s=>'<option value="'+escapeHTML(s.id)+'">'+escapeHTML(s.name)+' — '+brl(s.price)+'</option>').join('')}
+function renderServices(){
+const photos={outside:'https://images.unsplash.com/photo-1607860108855-64acf2078ed9?auto=format&fit=crop&w=900&q=85',inside:'https://images.unsplash.com/photo-1507136566006-cfc505b114fc?auto=format&fit=crop&w=900&q=85',complete:'https://images.unsplash.com/photo-1605164599901-ef5b4c7f5c8d?auto=format&fit=crop&w=900&q=85'};
+$('serviceCards').innerHTML=services.map(s=>'<article class="service"><div class="service-photo"><img src="'+(photos[s.id]||photos.complete)+'" alt="'+escapeHTML(s.name)+'" loading="lazy"><span class="photo-label">'+escapeHTML(s.name)+'</span></div><h3>'+escapeHTML(s.name)+'</h3><p>'+escapeHTML(s.description||'Lavagem automotiva.')+'</p><div class="price">'+brl(s.price)+' <small>· '+Number(s.duration)+' min</small></div><button class="btn outline chooseService" data-service="'+escapeHTML(s.id)+'">Selecionar serviço →</button></article>').join('');
+$('service').innerHTML='<option value="">Selecione um serviço</option>'+services.map(s=>'<option value="'+escapeHTML(s.id)+'">'+escapeHTML(s.name)+' — '+brl(s.price)+'</option>').join('')
+}
 function localDate(d){return [d.getFullYear(),String(d.getMonth()+1).padStart(2,'0'),String(d.getDate()).padStart(2,'0')].join('-')}
 function updatePrice(){const s=services.find(x=>x.id===$('service').value);$('priceText').textContent=s?brl(s.price):'—';$('durationText').textContent=s?'Duração aproximada: '+s.duration+' minutos':'Selecione um serviço';renderTimes()}
 function renderTimes(){const date=$('date').value,service=services.find(x=>x.id===$('service').value);selectedTime='';if(!date||!service){$('time').innerHTML='<option value="">Escolha serviço e data</option>';return}const start=8*60,end=18*60,step=30,now=new Date();let opts='<option value="">Selecione um horário</option>';for(let m=start;m+Number(service.duration)<=end;m+=step){const hh=String(Math.floor(m/60)).padStart(2,'0'),mm=String(m%60).padStart(2,'0'),t=hh+':'+mm;const begins=new Date(date+'T'+t+':00');if(begins<now)continue;const collision=reservations.some(r=>r.date===date&&r.status!=='Cancelado'&&(()=>{const a=Number(r.time.slice(0,2))*60+Number(r.time.slice(3,5)),b=a+Number(r.duration||60);return m<b&&m+Number(service.duration)>a})());opts+='<option value="'+t+'" '+(collision?'disabled':'')+'>'+t+(collision?' — ocupado':'')+'</option>'}$('time').innerHTML=opts}
