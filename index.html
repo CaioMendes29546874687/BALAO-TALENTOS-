@@ -131,6 +131,76 @@ body::before{opacity:.025;background-size:min(60vw,520px)}
  .footer:after{right:-20px;bottom:-45px;width:155px;height:155px}
 }
 
+
+/* Direção visual inspirada no mockup premium BALAO TALENTOS */
+:root{--blue:#f5f5f5;--navy:#050505;--sky:#1a1a1a;--ink:#f5f5f5;--muted:#aaa;--white:#fff;--line:#333;--green:#eee}
+html{background:#050505}
+body{background:#070707;color:#f4f4f4}
+body::before{opacity:.07;filter:grayscale(1);background-size:min(55vw,540px)}
+.top{background:#050505;color:#ccc;border-bottom:1px solid #222}
+.nav{background:rgba(5,5,5,.94);border-bottom:1px solid #333;backdrop-filter:blur(18px);box-shadow:0 10px 30px #0008}
+.brand{color:#fff}.brand small{color:#aaa}
+.links{color:#ddd}
+.hero{background:radial-gradient(ellipse at 80% 30%,#303030 0,transparent 38%),linear-gradient(120deg,#020202,#0b0b0b 55%,#171717)}
+.hero:after{opacity:.10;background-size:min(34vw,370px)}
+.hero-grid{padding-top:66px;padding-bottom:72px;grid-template-columns:1.05fr .95fr;gap:26px}
+.hero h1{font-size:clamp(40px,5vw,65px);letter-spacing:-2.2px;text-transform:uppercase}
+.hero h1 span{color:#fff;text-shadow:0 0 20px #ffffff20}
+.hero p{color:#ccc}
+.eyebrow{color:#ddd}
+.btn{border-radius:999px;text-transform:none}
+.primary{background:#f4f4f4;color:#050505;border:1px solid #fff;box-shadow:0 0 20px #ffffff12}
+.primary:hover{background:#dcdcdc;color:#000}
+.outline{background:#080808;color:#fff;border:1px solid #777}
+.hero .outline{background:#080808;color:#fff;border-color:#888}
+.carbox{border:1px solid #555;border-radius:24px;background:radial-gradient(ellipse at center,#282828,#090909 75%);box-shadow:inset 0 0 65px #ffffff08,0 25px 70px #000}
+.car{filter:grayscale(.85) drop-shadow(0 24px 18px #000b)}
+.floating{border-radius:14px;background:#f5f5f5;color:#111;border:1px solid #fff;box-shadow:0 14px 35px #0009}
+.floating b{color:#111}
+.trust{background:#080808;border-color:#292929;color:#f5f5f5}
+.trustitem{color:#eee}.trustitem span{background:linear-gradient(145deg,#292929,#111);border:1px solid #444;color:#fff}
+.section{background:#080808;color:#f4f4f4}
+.heading p{color:#aaa}.kicker{color:#ddd}
+.cards{gap:16px}
+.service{background:linear-gradient(160deg,#151515,#050505);border:1px solid #444;border-radius:16px;color:#fff;box-shadow:0 15px 45px #0008;padding:22px}
+.service:hover{border-color:#aaa;box-shadow:0 20px 50px #000}
+.service p{color:#bbb}.service .ico{background:#222;border:1px solid #444;color:#fff}
+.price{color:#fff}.price small{color:#aaa}
+.booking{background:linear-gradient(180deg,#111,#070707);border-top:1px solid #222;border-bottom:1px solid #222}
+.bookintro p{color:#bbb}
+.formcard{background:#111;border:1px solid #444;color:#fff;box-shadow:0 20px 60px #0009}
+.sub,.hint{color:#aaa}
+.field label{color:#eee}
+.field input,.field select,.field textarea{background:#080808;color:#fff;border-color:#444}
+.field input:focus,.field select:focus,.field textarea:focus{border-color:#ddd;box-shadow:0 0 0 3px #ffffff12}
+.slot{background:#111;color:#eee;border-color:#444}.slot.selected{background:#f5f5f5;color:#050505;border-color:#fff}
+.summary{background:#191919;border-color:#444;color:#fff}.summary strong{color:#fff}
+.note{background:#151515;border-color:#333;color:#bbb}
+.footer{background:radial-gradient(ellipse at 80% 10%,#252525 0,transparent 35%),#030303;border-top:1px solid #333}
+.footer p{color:#aaa}.adminlink{color:#ddd}
+.footer:after{opacity:.13}
+@media(max-width:800px){
+ .hero-grid{grid-template-columns:1fr;padding:48px 0 55px;gap:24px}
+ .hero-copy{text-align:left}.hero-copy p{margin-left:0}.actions{justify-content:flex-start}
+ .hero h1{font-size:clamp(36px,9vw,52px)}
+ .hero-art{min-height:260px}
+ .cards{grid-template-columns:1fr}
+ .service{min-height:0}
+ .trustgrid{grid-template-columns:1fr}
+ .section{padding:52px 0}
+ .bookgrid{grid-template-columns:1fr}
+ .bookintro{position:static}
+}
+@media(max-width:540px){
+ .navin{gap:8px}.brand>span:last-child{font-size:12px}.brand small{font-size:9px}
+ .navin>.btn{max-width:145px;padding:11px 12px;font-size:12px}
+ .hero-grid{padding:42px 0 48px}
+ .hero h1{letter-spacing:-1.3px}
+ .carbox{min-height:260px}
+ .formcard{padding:20px}
+ .footerin{display:grid;grid-template-columns:1fr}
+}
+
 </style>
 </head>
 <body>
