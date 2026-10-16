@@ -69,6 +69,68 @@ body::before{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;ba
  .section{padding:48px 0}
 }
 
+
+/* Experiência premium futurista - refinamento geral */
+:root{--blue:#080808;--navy:#050505;--sky:#f0f0f0;--ink:#101010;--muted:#666;--white:#fff;--line:#dedede;--green:#f5f5f5}
+body{background:#f1f1f1}
+body::before{opacity:.025;background-size:min(60vw,520px)}
+.top{font-size:11px;letter-spacing:1.1px;text-transform:uppercase;background:#050505}
+.nav{background:rgba(250,250,250,.94);backdrop-filter:blur(18px);box-shadow:0 8px 30px #0000000a}
+.navin{height:82px}
+.brand{gap:13px}
+.brand small{font-size:9px;letter-spacing:2.4px}
+.logo{width:58px;height:58px;flex-basis:58px;background:#030303;border:1px solid #3c3c3c;border-radius:16px;box-shadow:0 0 0 3px #00000008,0 10px 26px #0000001a}
+.hero{background:radial-gradient(ellipse at 78% 18%,#333 0,transparent 35%),radial-gradient(ellipse at 15% 90%,#222 0,transparent 38%),linear-gradient(130deg,#030303,#111 60%,#252525)}
+.hero:after{opacity:.055;background-size:min(30vw,330px)}
+.hero-grid{padding-top:80px;padding-bottom:84px;gap:42px}
+.hero h1{font-size:clamp(42px,5.8vw,70px);letter-spacing:-2.8px}
+.hero h1 span{color:#f5f5f5;text-shadow:0 0 25px #ffffff18}
+.hero p{font-size:17px;line-height:1.8;color:#d0d0d0}
+.eyebrow{letter-spacing:2px}
+.btn{border-radius:14px;padding:14px 20px;transition:transform .2s,box-shadow .2s,background .2s}
+.primary{background:linear-gradient(135deg,#252525,#030303);border:1px solid #484848;box-shadow:0 12px 28px #00000024}
+.primary:hover{transform:translateY(-2px);box-shadow:0 16px 35px #00000030}
+.outline{background:#ffffff08;border:1px solid #ffffff55;color:#fff}
+.hero .outline:hover{background:#ffffff15}
+.carbox{border-radius:30px;border-color:#ffffff35;background:linear-gradient(145deg,#ffffff13,#ffffff03);box-shadow:inset 0 0 70px #ffffff08,0 24px 65px #00000030}
+.floating{border:1px solid #e5e5e5;box-shadow:0 15px 40px #00000028}
+.trust{background:#fff}
+.trustgrid{padding:28px 0}
+.trustitem span{background:linear-gradient(145deg,#f8f8f8,#e6e6e6);border:1px solid #ddd}
+.section{padding:86px 0}
+.heading h2{letter-spacing:-1.4px}
+.service{border-radius:22px;padding:28px;box-shadow:0 14px 40px #00000008;transition:transform .22s,box-shadow .22s}
+.service:hover{transform:translateY(-5px);box-shadow:0 22px 55px #00000012}
+.service .ico{background:linear-gradient(145deg,#f8f8f8,#e6e6e6);border:1px solid #ddd}
+.booking{background:linear-gradient(180deg,#ededed,#f7f7f7)}
+.formcard{border-radius:24px;box-shadow:0 24px 65px #0000000d}
+.field input,.field select,.field textarea{border-radius:12px;padding:14px}
+.field input:focus,.field select:focus,.field textarea:focus{border-color:#555;box-shadow:0 0 0 4px #0000000d}
+.summary{border-radius:15px}
+.footer{background:radial-gradient(ellipse at 85% 20%,#292929 0,transparent 38%),linear-gradient(130deg,#030303,#111);border-top:1px solid #333;padding:52px 0;min-height:210px}
+.footerin{align-items:center;gap:35px}
+.footerin>div{min-width:0}
+.footerin>div:first-child{flex:1}
+.footerin>div:nth-child(2){min-width:220px}
+.footerin .brand{display:inline-flex}
+.footerin .logo{width:66px;height:66px;flex-basis:66px;box-shadow:0 0 0 1px #ffffff25,0 12px 28px #00000050}
+.footerin p{line-height:1.7;color:#bdbdbd}
+.footerin b{font-size:19px;color:#fff}
+.footer:after{right:1%;bottom:-35px;width:190px;height:190px;opacity:.08}
+@media(max-width:700px){
+ .navin{height:auto;min-height:76px;padding:8px 0}
+ .logo{width:49px;height:49px;flex-basis:49px}
+ .hero-grid{padding:52px 0 58px;gap:25px}
+ .hero h1{font-size:clamp(36px,9vw,49px);letter-spacing:-1.6px}
+ .hero-art{min-height:250px}
+ .section{padding:58px 0}
+ .footer{padding:36px 0}
+ .footerin{display:grid;grid-template-columns:1fr;gap:18px}
+ .footerin>div:nth-child(2){min-width:0}
+ .footerin .logo{width:58px;height:58px;flex-basis:58px}
+ .footer:after{right:-20px;bottom:-45px;width:155px;height:155px}
+}
+
 </style>
 </head>
 <body>
@@ -94,7 +156,7 @@ body::before{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;ba
 <div class="field full"><label for="notes">Observações (opcional)</label><input id="notes" maxlength="250" placeholder="Detalhes ou preferências"></div>
 </div><div class="summary"><span><b>Valor estimado</b><br><small id="durationText">Selecione um serviço</small></span><strong id="priceText">—</strong></div><button class="btn primary" type="submit" style="width:100%">Solicitar agendamento →</button><div class="hint" style="margin-top:10px">A solicitação não é confirmada até o proprietário validar o horário. WhatsApp abre para envio manual.</div><div class="success" id="success"></div></form></div></div></section>
 <section class="section" id="como"><div class="wrap"><div class="heading"><span class="kicker">É SIMPLES ASSIM</span><h2>Agende em três passos</h2><p>Mais praticidade para você e mais organização para o atendimento.</p></div><div class="cards"><article class="service"><div class="ico">01</div><h3>Escolha o serviço</h3><p>Compare as opções e selecione o cuidado ideal para seu veículo.</p></article><article class="service"><div class="ico">02</div><h3>Reserve seu horário</h3><p>Informe seus dados, o local de atendimento, a data e o horário.</p></article><article class="service"><div class="ico">03</div><h3>Confirme pelo WhatsApp</h3><p>Envie os detalhes e aguarde a confirmação do estabelecimento.</p></article></div></div></section>
-</main><footer class="footer"><div class="wrap footerin"><div><a class="brand" href="#" style="color:#fff"><span class="logo">BT</span><span>BALAO TALENTOS<small style="color:#bbbbbb">LAVAGEM AUTOMOTIVA</small></span></a><p>Cuidado automotivo com mais praticidade.</p></div><div><b>Atendimento</b><p>Na loja e a domicílio<br>Agendamento online</p><a class="adminlink" href="#admin" id="adminLink">Acesso do proprietário</a></div></div></footer></div>
+</main><footer class="footer"><div class="wrap footerin"><div><a class="brand" href="#" style="color:#fff"><span class="logo"><img src="./file_000000001874820e9cd02b2e5de6025a.png" alt="Logo BALAO TALENTOS"></span><span>BALAO TALENTOS<small style="color:#bbbbbb">LAVAGEM AUTOMOTIVA</small></span></a><p>Lavagem por fora, por dentro ou completa.</p></div><div><b>Atendimento</b><p>Na loja e a domicílio<br>Agendamento online</p><a class="adminlink" href="#admin" id="adminLink">Acesso do proprietário</a></div></div></footer></div>
 <div id="adminApp" class="admin"><div class="wrap"><div id="loginPanel" class="login"><a class="brand" href="#"><span class="logo">BT</span><span>BALAO TALENTOS<small>PAINEL DO PROPRIETÁRIO</small></span></a><h2>Entrar no painel</h2><p style="color:var(--muted);font-size:13px">Protótipo local: defina uma senha antes de usar. Não use dados reais de clientes neste protótipo.</p><form id="loginForm"><div class="field"><label for="adminPassword">Senha do painel</label><input id="adminPassword" type="password" required placeholder="Crie ou digite a senha"></div><button class="btn primary" style="width:100%;margin-top:15px">Entrar</button></form><button class="btn outline" id="backPublic" style="width:100%;margin-top:10px">Voltar ao site</button><div class="hint" style="margin-top:12px">A senha é salva apenas neste navegador e não substitui autenticação segura no servidor.</div></div>
 <div id="dashboard" style="display:none"><div class="adminhead"><div><span class="kicker">ADMINISTRAÇÃO</span><h1 style="margin:5px 0">Painel BALAO TALENTOS</h1><div class="hint">Dados armazenados localmente neste navegador.</div></div><div style="display:flex;gap:8px;flex-wrap:wrap"><button class="btn outline" id="exportBtn">Exportar CSV</button><button class="btn outline" id="backupBtn">Backup JSON</button><button class="btn danger" id="logoutBtn">Sair</button></div></div><div class="stats"><div class="stat"><span>Total de reservas</span><strong id="statTotal">0</strong></div><div class="stat"><span>Aguardando confirmação</span><strong id="statPending">0</strong></div><div class="stat"><span>Faturamento estimado</span><strong id="statRevenue">R$ 0</strong></div></div><div class="panel"><h3>Agendamentos</h3><div class="tablewrap"><table><thead><tr><th>Data / hora</th><th>Cliente</th><th>Veículo</th><th>Serviço</th><th>Local</th><th>Valor</th><th>Status</th><th>Ações</th></tr></thead><tbody id="bookingRows"></tbody></table></div><p id="emptyBookings" class="hint">Nenhum agendamento registrado neste navegador.</p></div><div class="panel" style="margin-top:18px"><h3>Configurações básicas</h3><div class="fields"><div class="field"><label for="whatsappNumber">WhatsApp da empresa (DDI + DDD + número)</label><input id="whatsappNumber" placeholder="5519999999999"></div><div class="field"><label for="openHours">Horário de atendimento (informativo)</label><input id="openHours" value="Segunda a sábado, 08h às 18h"></div></div><button class="btn primary" id="saveSettings" style="margin-top:15px">Salvar configurações</button><p class="hint">Ajustes salvos apenas neste navegador.</p><h3 style="margin-top:28px">Serviços e preços</h3><div id="adminServices"></div></div></div></div></div>
 <div class="toast" id="toast"></div>
