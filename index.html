@@ -374,11 +374,15 @@ const defaultServices=[
 {id:'outside',name:'Lavagem por fora',description:'Limpeza externa da carroceria, vidros, rodas e pneus.',price:40,duration:40,icon:'🚿'},
 {id:'inside',name:'Lavagem por dentro',description:'Limpeza interna do veículo, painel, portas, tapetes e aspiração.',price:30,duration:40,icon:'🧽'},
 {id:'complete',name:'Lavagem completa',description:'Lavagem externa e limpeza interna para deixar o carro limpo por dentro e por fora.',price:60,duration:90,icon:'✨'}
+ ,
+{id:'moto_pequena',name:'Lavagem moto de porte pequeno',description:'Lavagem completa para motos pequenas, como Honda Titan 150, com limpeza das rodas e acabamento com brilho.',price:30,duration:40,icon:'🏍️'},
+{id:'moto_grande',name:'Lavagem moto de porte grande',description:'Lavagem completa para motos de grande porte, como BMW, com limpeza das rodas e acabamento com brilho.',price:45,duration:60,icon:'🏍️'}
 ];
 const $=id=>document.getElementById(id);
 const get=(k,f)=>{try{const v=localStorage.getItem(k);return v?JSON.parse(v):f}catch{return f}};
 const set=(k,v)=>localStorage.setItem(k,JSON.stringify(v));
 let services=get(SERVKEY,defaultServices),reservations=get(KEY,[]),settings=get(SETKEY,{whatsapp:'5519999724728',hours:'Segunda a sábado, 08h às 18h'}),selectedTime='',adminToken='';
+for(const fallback of defaultServices){if(!services.some(s=>s.id===fallback.id))services.push(fallback)}
 const brl=n=>Number(n).toLocaleString('pt-BR',{style:'currency',currency:'BRL'});
 async function loadServerCatalog(){try{const [sr,cr]=await Promise.all([fetch(API_BASE+'/api/services'),fetch(API_BASE+'/api/settings')]);if(sr.ok){const rows=await sr.json();if(rows.length){services=rows.map(x=>({id:x.id,name:x.name,description:x.description||'',price:Number(x.price),duration:Number(x.duration_minutes),icon:'🚿'}));set(SERVKEY,services);renderServices();updatePrice()}}if(cr.ok){const cfg=await cr.json();settings={...settings,...cfg};set(SETKEY,settings)}}catch(e){console.warn('API ainda não disponível; catálogo local temporário.',e)}}
 function escapeHTML(s){return String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
